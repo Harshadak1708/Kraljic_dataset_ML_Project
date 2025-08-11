@@ -9,10 +9,25 @@ This project applies machine learning algorithms to classify products based on t
 - **Total Records:** 1,000
 - **Features:** 11, including product information, supplier location, lead times, order volumes, cost, and risk scores.
 - **Target Variable:** `Kraljic_Category` with 4 classes.
+- Product_ID: Unique product identifier
+- Product_Name: Name/type of the product (e.g., Semiconductors, Pharma APIs)
+- Supplier_Region: Region of the supplier (Asia, Europe, Global, etc.)
+- Lead_Time_Days: Number of days from order to receipt
+- Order_Volume_Units: Units ordered
+- Cost_per_Unit: Price per unit
+- Supply_Risk_Score: Risk score for supply chain vulnerabilities
+- Profit_Impact_Score: Impact on profit if supply is disrupted
+- Environmental_Impact: Environmental impact score
+- Single_Source_Risk: Binary feature if single sourcing is a risk (Yes/No)
+- Kraljic_Category: Target variable with categories (Strategic, Bottleneck, Leverage, Non-Critical)
 
 ## Exploratory Data Analysis (EDA)
 
 - Visualizations of class distributions, correlations, and feature distributions.
+- Class distribution visualization showing balanced categories.
+- Correlation heatmaps to understand relationships among numeric variables.
+- Boxplots for understanding how cost and other features vary by category.
+- Inspection of missing values and data types.
 - Summary statistics and data integrity checks.
 
 ## Data Preprocessing
@@ -25,25 +40,27 @@ This project applies machine learning algorithms to classify products based on t
 
 The following classification models have been implemented and evaluated:
 
-- Logistic Regression
-- Random Forest (Bagging)
-- XGBoost (Boosting)
-- Support Vector Machine (SVM)
-- Gradient Boosting Classifier
-- K-Nearest Neighbors (KNN)
-- Naive Bayes (GaussianNB)
-- Decision Tree
+- Logistic Regression: Baseline linear model for classification.
+- Random Forest: Bagging ensemble of decision trees to reduce variance.
+- XGBoost: Gradient boosting model for improved accuracy on structured data.
+- Support Vector Machine (SVM): Kernel-based model effective for complex boundaries.
+- Gradient Boosting Classifier: Another boosting model for comparison.
+- K-Nearest Neighbors (KNN): Instance-based learning using neighbors.
+- Naive Bayes (GaussianNB): Probabilistic model assuming feature independence.
+- Decision Tree: Simple interpretable tree-based classifier.
+
+Each model is trained on the training data, then evaluated on the test set.
 
 ## Model Evaluation
 
-Metrics used include:
+For each model, the following evaluation metrics are computed and compared:
 
-- Accuracy
-- Precision
-- Recall
-- F1 Score
+- Accuracy: Overall correctness of classification.
+- Precision: Proportion of positive identifications that were actually correct.
+- Recall: Proportion of actual positives that were identified correctly.
+- F1 Score: Harmonic mean of precision and recall; balances the two.
 
-Confusion matrices and classification reports are provided for each model.
+Confusion matrices and detailed classification reports are generated for each model, helping to understand strengths and weaknesses by class.
 
 ## Summary of Results
 
